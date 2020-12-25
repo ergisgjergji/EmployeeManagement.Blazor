@@ -13,6 +13,7 @@
     <title>EmployeeManagement.Web</title>
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css"/>
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
@@ -32,5 +33,14 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <environment include="Development">
+        <script>
+            window.Blazor.defaultReconnectionHandler.onConnectionDown = function () {
+                setTimeout(function () {
+                    location.reload();
+                }, 7000);
+            }
+        </script>
+    </environment>
 </body>
 </html>

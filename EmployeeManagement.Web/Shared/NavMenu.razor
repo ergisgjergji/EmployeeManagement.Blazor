@@ -12,31 +12,26 @@
             <Authorized>
                 <li class="nav-item">
                     <NavLink href="/" class="nav-link" Match="NavLinkMatch.All">
-                        <span class="oi oi-home" aria-hidden="true"></span> Employees
+                        <i class="fas fa-home" aria-hidden="true"></i> Employees
                     </NavLink>
                 </li>
                 <li class="nav-item">
                     <NavLink href="/employee/new" class="nav-link" Match="NavLinkMatch.All">
-                        <span class="oi oi-plus" aria-hidden="true"></span> Add employee
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink href="/databinding" class="nav-link" Match="NavLinkMatch.All">
-                        <span class="oi oi-info" aria-hidden="true"></span> Data-binding
+                        <i class="fas fa-user-plus" aria-hidden="true"></i> Add employee
                     </NavLink>
                 </li>
                 <li class="nav-item border-top">
-                    <NavLink href="/identity/account/logout" class="nav-link" Match="NavLinkMatch.All">
-                        <span class="oi oi-power-standby" aria-hidden="true"></span> Logout
-                    </NavLink>
+                    <a href="/identity/account/logout" class="nav-link">
+                        <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Logout
+                    </a>
                 </li>
             </Authorized>
             <NotAuthorized>
 
                 <li class="nav-item">
-                    <NavLink href="/identity/account/login" class="nav-link" Match="NavLinkMatch.All">
-                        <span class="oi oi-lock-locked" aria-hidden="true"></span> Login
-                    </NavLink>
+                    <a href="/identity/account/login" class="nav-link">
+                        <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Login
+                    </a>
                 </li>
 
             </NotAuthorized>

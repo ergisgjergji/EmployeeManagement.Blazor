@@ -1,7 +1,6 @@
 ﻿@page "/"
 
-<h3>Employee List</h3>
-<h5> Selected Employees: @SelectedEmployeesCount </h5>
+<h4>Employee List</h4>
 
 <input type="checkbox" id="showFooter" @bind="DisplayFooter" />
 <label> Show actions </label>
@@ -23,8 +22,7 @@ else
         {
             <EmployeeListItem 
                 Employee="@employee"
-                DisplayFooter="@DisplayFooter" 
-                OnEmployeeSelect="EmployeeSelectionChanged" 
+                DisplayFooter="@DisplayFooter"
                 OnEmployeeDelete="DeleteEmployee"
             />
         }

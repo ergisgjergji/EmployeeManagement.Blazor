@@ -15,18 +15,10 @@ namespace EmployeeManagement.Web.Pages
         [Parameter]
         public bool DisplayFooter { get; set; }
         
-
-        [Parameter]
-        public EventCallback<bool> OnEmployeeSelect { get; set; }
         [Parameter]
         public EventCallback<int> OnEmployeeDelete { get; set; }
 
         public ConfirmDialog ConfirmModal { get; set; }
-
-        protected async Task CheckboxChanged(ChangeEventArgs e)
-        {
-            await OnEmployeeSelect.InvokeAsync((bool)e.Value);
-        }
 
         protected async Task OnDeleteClick()
         {

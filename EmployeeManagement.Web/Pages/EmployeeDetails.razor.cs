@@ -25,8 +25,7 @@ namespace EmployeeManagement.Web.Pages
         public string Id { get; set; }
         public Employee Employee { get; set; }
         public string Coordinates { get; set; }
-        public string ButtonText { get; set; } = "Hide";
-        public string CssClass { get; set; } = null;
+        public bool ShowActions { get; set; } = true;
         public ConfirmDialog ConfirmModal { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -47,18 +46,9 @@ namespace EmployeeManagement.Web.Pages
             Coordinates = "X: " + e.ClientX + " Y: " + e.ClientY;
         }
 
-        protected void Button_Click()
+        protected void ToggleActions_Click()
         {
-            if(ButtonText.Equals("Hide"))
-            {
-                ButtonText = "Show";
-                CssClass = "hidden";
-            }
-            else
-            {
-                ButtonText = "Hide";
-                CssClass = null;
-            }
+            ShowActions = !ShowActions;
         }
 
         protected async Task OnDeleteClick()

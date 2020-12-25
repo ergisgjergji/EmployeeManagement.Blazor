@@ -58,7 +58,7 @@ app {
         font-size: 0.9rem;
     }
 
-    .sidebar .oi {
+    .sidebar .oi, .sidebar i {
         width: 1.5rem;
         font-size: 0.8rem;
         vertical-align: text-top;
@@ -188,4 +188,7 @@ app {
 }
 .hidden {
     display: none;
+}
+.modal {
+    background-color: #00000082 !important;
 }

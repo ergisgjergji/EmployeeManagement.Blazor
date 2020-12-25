@@ -11,21 +11,31 @@ else
 
             <div class="card">
                 <div class="card-header">
-                    <h1> @Employee.FirstName @Employee.LastName </h1>
+                    <h4 class="d-inline-block"> @Employee.FirstName @Employee.LastName </h4>
+                    <button class="btn btn-sm btn-danger float-right" @onclick="OnDeleteClick">
+                        <i class="far fa-trash-alt fa-sm" aria-hidden="true"></i>
+                    </button>
                 </div>
 
                 <div class="card-body text-center">
-                    <img class="card-img-top" src="@Employee.Photo" @onmousemove="@Mouse_Move"/>
-                    <h4> Id: @Employee.Id </h4>
-                    <h4> Email: @Employee.Email </h4>
-                    <h4> Department: @Employee.Department.Name </h4>
-                    <button class="btn btn-primary" @onclick="@Button_Click"> @ButtonText </button>
+                    <img class="card-img-top imageThumbnail" src="@Employee.Photo" @onmousemove="@Mouse_Move" />
+                    <h6> <b>Id:</b> @Employee.Id </h6>
+                    <h6> <b>Email:</b> @Employee.Email </h6>
+                    <h6> <b>Department:</b> @Employee.Department.Name </h6>
+                    <div>
+                        <button class="btn btn-sm btn-primary float-right" @onclick="@ToggleActions_Click">
+                            <i class="fas fa-caret-@(ShowActions ? "up" : "down") fa-sm" aria-hidden="true" />
+                        </button>
+                    </div>
                 </div>
 
-                <div class="card-footer text-center @CssClass">
-                    <a href="/" class="btn btn-sm btn-secondary"> Back </a>
-                    <a href="/employee/@Employee.Id/edit" class="btn btn-sm btn-primary"> Edit </a>
-                    <button class="btn btn-sm btn-danger m-1" @onclick="OnDeleteClick"> Delete </button>
+                <div class="card-footer text-center @(ShowActions ? null : "hidden")">
+                    <a href="/" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-arrow-left fa-sm" aria-hidden="true" /> Back
+                    </a>
+                    <a href="/employee/@Employee.Id/edit" class="btn btn-sm btn-primary">
+                        <i class="fas fa-user-edit fa-sm" aria-hidden="true" /> Edit
+                    </a>
                 </div>
             </div>
 

@@ -1,10 +1,10 @@
 ﻿<div class="card m-3" style="min-width: 18rem; max-width: 30.5%;">
 
     <div class="card-header">
-        <h3>
-            <input type="checkbox" @onchange="CheckboxChanged" />
-            @Employee.FirstName @Employee.LastName
-        </h3>
+        <label> @Employee.FirstName @Employee.LastName </label>
+        <button class="btn btn-sm btn-danger float-right" @onclick="OnDeleteClick">
+            <i class="far fa-trash-alt fa-sm" aria-hidden="true"></i>
+        </button>
     </div>
 
     <img class="card-img-top imageThumbnail" src="@Employee.Photo" />
@@ -12,9 +12,12 @@
     @if (DisplayFooter)
     {
         <div class="card-footer text-center">
-            <a href="/employee/@Employee.Id" class="btn btn-sm btn-primary m-1"> View </a>
-            <a href="/employee/@Employee.Id/edit" class="btn btn-sm btn-secondary m-1"> Edit </a>
-            <button class="btn btn-sm btn-danger m-1" @onclick="OnDeleteClick"> Delete </button>
+            <a href="/employee/@Employee.Id" class="btn btn-sm btn-primary m-1"> 
+                <i class="fas fa-info fa-sm" aria-hidden="true"/> View 
+            </a>
+            <a href="/employee/@Employee.Id/edit" class="btn btn-sm btn-secondary m-1">
+                <i class="fas fa-user-edit fa-sm" aria-hidden="true" /> Edit
+            </a>
         </div>
     }
 

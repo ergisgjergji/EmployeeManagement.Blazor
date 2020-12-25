@@ -21,7 +21,6 @@ namespace EmployeeManagement.Web.Pages
 
         public IEnumerable<Employee> Employees { get; set; }
         public bool DisplayFooter { get; set; } = true;
-        public int SelectedEmployeesCount { get; set; } = 0;
 
         protected override async Task OnInitializedAsync()
         {
@@ -34,14 +33,6 @@ namespace EmployeeManagement.Web.Pages
             }
 
             Employees = await EmployeeService.GetAllAsync();
-        }
-
-        protected void EmployeeSelectionChanged(bool isSelected)
-        {
-            if (isSelected)
-                SelectedEmployeesCount++;
-            else
-                SelectedEmployeesCount--;
         }
 
         protected async Task DeleteEmployee(int id)

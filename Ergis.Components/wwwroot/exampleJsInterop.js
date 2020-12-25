@@ -2,7 +2,7 @@
 // wrapped in a .NET API
 
 window.exampleJsFunctions = {
-  showPrompt: function (message) {
+  showPrompt: (message) => {
     return prompt(message, 'Type anything here');
   }
 };
