@@ -1,0 +1,17 @@
+﻿@page "/databinding"
+
+<h3>Two-way data-binding demo</h3>
+
+<div>
+    Name: <input @bind="Name" @bind:event="oninput" />
+</div>
+<div>
+    <label> You entered: @Name </label>
+</div>
+
+<div>
+    Color: <input @bind="Colour" />
+</div>
+<div @bind-style="Colour" @bind-style:event="onchange">
+    <label> The background color changes. </label>
+</div>

@@ -1,0 +1,41 @@
+﻿@page "/employee/{id}"
+
+@if (Employee == null)
+{
+    <div class="fixed-center spinner-border text-primary"></div>
+}
+else
+{
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+
+            <div class="card">
+                <div class="card-header">
+                    <h1> @Employee.FirstName @Employee.LastName </h1>
+                </div>
+
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="@Employee.Photo" @onmousemove="@Mouse_Move"/>
+                    <h4> Id: @Employee.Id </h4>
+                    <h4> Email: @Employee.Email </h4>
+                    <h4> Department: @Employee.Department.Name </h4>
+                    <button class="btn btn-primary" @onclick="@Button_Click"> @ButtonText </button>
+                </div>
+
+                <div class="card-footer text-center @CssClass">
+                    <a href="/" class="btn btn-sm btn-secondary"> Back </a>
+                    <a href="/employee/@Employee.Id/edit" class="btn btn-sm btn-primary"> Edit </a>
+                    <button class="btn btn-sm btn-danger m-1" @onclick="OnDeleteClick"> Delete </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+<ConfirmDialog @ref="ConfirmModal"
+               Title="Confirm"
+               Message="Are you sure you want to delete this employee?"
+               ConfirmBtn="Yes"
+               CancelBtn="No"
+               ConfirmCallback="OnDeleteConfirm" />

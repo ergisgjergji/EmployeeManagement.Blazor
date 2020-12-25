@@ -1,0 +1,32 @@
+﻿@page "/"
+
+<h3>Employee List</h3>
+<h5> Selected Employees: @SelectedEmployeesCount </h5>
+
+<input type="checkbox" id="showFooter" @bind="DisplayFooter" />
+<label> Show actions </label>
+
+@if (Employees == null)
+{
+    <div class="fixed-center spinner-border text-primary"></div>
+}
+else if(Employees.Count() == 0)
+{
+    <div class="alert alert-info text-center" role="alert">
+        <span class="oi oi-info"> There are no employees. </span>
+    </div>
+}
+else
+{
+    <div class="card-deck">
+        @foreach (var employee in Employees)
+        {
+            <EmployeeListItem 
+                Employee="@employee"
+                DisplayFooter="@DisplayFooter" 
+                OnEmployeeSelect="EmployeeSelectionChanged" 
+                OnEmployeeDelete="DeleteEmployee"
+            />
+        }
+    </div>
+}

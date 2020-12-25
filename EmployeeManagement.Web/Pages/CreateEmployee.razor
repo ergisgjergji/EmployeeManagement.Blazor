@@ -1,0 +1,62 @@
+﻿@page "/employee/new"
+
+<div class="col-12 col-md-10 col-lg-9 mx-auto">
+
+    <EditForm Model="@EditEmployeeModel" OnValidSubmit="OnSubmit">
+        <DataAnnotationsValidator />
+
+        <h4 class="text-center"> Edit Employee </h4>
+        <hr />
+
+        <div class="mb-5">
+            <div class="form-group row">
+                <label for="firstName"> First Name: </label>
+                <InputText id="firstName" class="form-control form-control-sm" placeholder="Fist Name" @bind-Value="@EditEmployeeModel.FirstName" />
+                <ValidationMessage For="@(() => EditEmployeeModel.FirstName)" />
+            </div>
+            <div class="form-group row">
+                <label for="lastName"> Last Name: </label>
+                <InputText id="lastName" class="form-control form-control-sm" placeholder="Last Name" @bind-Value="@EditEmployeeModel.LastName" />
+                <ValidationMessage For="@(() => EditEmployeeModel.LastName)" />
+            </div>
+            <div class="form-group row">
+                <label for="email"> Email: </label>
+                <InputText id="email" class="form-control form-control-sm" placeholder="Email" @bind-Value="@EditEmployeeModel.Email" />
+                <ValidationMessage For="@(() => EditEmployeeModel.Email)" />
+            </div>
+            <div class="form-group row">
+                <label for="confirmEmail"> Confirm email: </label>
+                <InputText id="email" class="form-control form-control-sm" placeholder="Confirm email" @bind-Value="@EditEmployeeModel.ConfirmEmail" />
+                <ValidationMessage For="@(() => EditEmployeeModel.ConfirmEmail)" />
+            </div>
+            <div class="form-group row">
+                <label for="dateOfBirth"> Date of birth: </label>
+                <InputDate class="form-control form-control-sm" @bind-Value="EditEmployeeModel.DateOfBirth" />
+                <ValidationMessage For="@(() => EditEmployeeModel.DateOfBirth)" />
+            </div>
+            <div class="form-group row">
+                <label for="gender"> Gender: </label>
+                <InputSelect id="gender" class="form-control form-control-sm" @bind-Value="EditEmployeeModel.Gender">
+                    @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                    {
+                        <option value="@gender"> @gender </option>
+                    }
+                </InputSelect>
+            </div>
+            <div class="form-group row">
+                <label for="department"> Gender: </label>
+                <InputSelect id="department" class="form-control form-control-sm" @bind-Value="EditEmployeeModel.DepartmentId">
+                    @foreach (var dept in Departments)
+                    {
+                        <option value="@dept.Id"> @dept.Name </option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-sm btn-primary"> Submit </button>
+            </div>
+        </div>
+    </EditForm>
+
+</div>
